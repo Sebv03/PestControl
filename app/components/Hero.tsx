@@ -23,7 +23,7 @@ const Hero = () => {
                         </div>
 
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-                            Hogar Libre de <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-red-400">Plagas</span> <br className="hidden lg:block" />
+                            Hogar Libre de <span className="text-brand-primary">Plagas</span> <br className="hidden lg:block" />
                             <span className="relative">
                                 Garantizado.
                                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-primary opacity-50" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99992C18.5039 3.23595 72.8687 -1.97966 197.962 3.48663" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>

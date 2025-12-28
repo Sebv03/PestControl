@@ -39,10 +39,10 @@ const Navbar = () => {
           <Link href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <div className="relative w-12 h-12 md:w-14 md:h-14">
               <Image
-                src="/logo.png"
+                src={isScrolled ? "/logo-rojo.png" : "/logo.png"}
                 alt="Pest Control Logo"
                 fill
-                className="object-contain"
+                className="object-contain transition-all duration-300"
                 priority
               />
             </div>
