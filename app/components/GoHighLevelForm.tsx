@@ -47,13 +47,18 @@ const GoHighLevelForm: React.FC<GoHighLevelFormProps> = ({
     if (iframe) {
       // Usar la altura del data-height o una altura mínima
       const dataHeight = iframe.getAttribute('data-height');
+      const isMobile = window.innerWidth < 640;
+      
       if (dataHeight) {
-        iframe.style.height = `${dataHeight}px`;
-        iframe.style.minHeight = `${dataHeight}px`;
+        // En móvil, reducir la altura para mejor visualización
+        const height = isMobile ? Math.min(parseInt(dataHeight), 700) : parseInt(dataHeight);
+        iframe.style.height = `${height}px`;
+        iframe.style.minHeight = `${height}px`;
       } else {
-        iframe.style.minHeight = '600px';
+        iframe.style.minHeight = isMobile ? '500px' : '600px';
       }
       iframe.style.width = '100%';
+      iframe.style.maxWidth = '100%';
     }
 
     // Cargar scripts después de que el HTML esté en el DOM
@@ -120,7 +125,7 @@ const GoHighLevelForm: React.FC<GoHighLevelFormProps> = ({
       ref={containerRef} 
       className={`gohl-form-container ${className}`}
       style={{ 
-        minHeight: '600px', 
+        minHeight: '500px',
         height: '100%',
         width: '100%',
         position: 'relative'
