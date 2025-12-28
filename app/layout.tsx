@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 
 import { ModalProvider } from "./context/ModalContext";
 import ContactModal from "./components/ContactModal";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 // ... existing imports
 
@@ -39,6 +40,7 @@ export default function RootLayout({
           <ExitIntentPopup />
           <FlashSalePopup />
           <ContactModal />
+          <WhatsAppFloat phoneNumber="+56912345678" />
         </ModalProvider>
       </body>
     </html>
