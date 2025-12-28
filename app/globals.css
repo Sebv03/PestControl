@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f9fa;
+  --foreground: #2c3e50;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --color-brand-primary: #cc0000; /* Red - trustworthy/urgent */
+  --color-brand-primary-dark: #a30000;
+  --color-brand-secondary: #2c3e50; /* Dark Slate - professional */
+  --color-brand-gold: #f1c40f; /* Gold - premium/offer */
+  --color-brand-white: #ffffff;
+  --color-brand-bg-light: #f8f9fa;
+  
+  --shadow-soft: 0 5px 15px rgba(0,0,0,0.05);
+  --shadow-hover: 0 15px 30px rgba(0,0,0,0.15);
+  
+  --animate-slide-up-fade: slideUpFade 0.6s ease forwards;
+  --animate-pulse-btn: pulseBtn 2s infinite;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  @keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulseBtn {
+    0% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(204, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(204, 0, 0, 0); }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-brand-bg-light);
+  color: var(--color-brand-secondary);
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  overflow-x: hidden;
 }
+
+/* Utility classes for animations */
+.anim-element {
+  opacity: 0;
+  animation: slideUpFade 0.6s ease forwards;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
