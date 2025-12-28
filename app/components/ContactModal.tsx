@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import { X, Phone, Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { X, Phone, Mail, MapPin } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
+import GoHighLevelForm from './GoHighLevelForm';
+import { GOHIGHLEVEL_EMBED_CODE } from '../../lib/gohighlevel-config';
 
 const ContactModal = () => {
     const { isContactOpen, closeContact } = useModal();
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isSuccess, setIsSuccess] = useState(false);
 
     // Close on escape key
     useEffect(() => {
@@ -27,22 +27,6 @@ const ContactModal = () => {
         }
     }, [isContactOpen]);
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-
-        // Simulate API call
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSuccess(true);
-            // Reset after success
-            setTimeout(() => {
-                setIsSuccess(false);
-                closeContact();
-            }, 3000);
-        }, 1500);
-    };
-
     if (!isContactOpen) return null;
 
     return (
@@ -54,7 +38,7 @@ const ContactModal = () => {
             />
 
             {/* Modal Content */}
-            <div className="relative w-full max-w-5xl h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-slide-up bg-grid-slate-100">
+            <div className="relative w-full max-w-5xl max-h-[95vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row animate-slide-up bg-grid-slate-100">
 
                 {/* Close Button */}
                 <button
@@ -87,7 +71,7 @@ const ContactModal = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400">Correo Electrónico</p>
-                                    <p className="text-lg font-medium">contacto@rbpestcontrol.cl</p>
+                                    <p className="text-lg font-medium">contacto@pestcontrol.cl</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -110,72 +94,19 @@ const ContactModal = () => {
                 </div>
 
                 {/* Right Side: Form */}
-                <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto bg-white">
-                    {isSuccess ? (
-                        <div className="h-full flex flex-col items-center justify-center text-center animate-fade-in">
-                            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                                <CheckCircle2 className="w-10 h-10 text-green-600" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Mensaje Recibido!</h3>
-                            <p className="text-gray-600">Un experto te contactará en breve.</p>
-                        </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-6">Envíanos un mensaje</h3>
-                            </div>
+                <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto bg-white flex flex-col">
+                    <div className="mb-6 flex-shrink-0">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Envíanos un mensaje</h3>
+                        <p className="text-gray-600 text-sm">Completa el formulario y te contactaremos pronto.</p>
+                    </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700">Nombre</label>
-                                    <input type="text" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all" placeholder="Tu Nombre" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-semibold text-gray-700">Teléfono</label>
-                                    <input type="tel" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all" placeholder="+56 9..." />
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-gray-700">Correo Electrónico</label>
-                                <input type="email" required className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all" placeholder="tu@email.com" />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-gray-700">Tipo de Problema</label>
-                                <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all bg-white">
-                                    <option>Selecciona una opción...</option>
-                                    <option>Roedores</option>
-                                    <option>Insectos / Cucarachas</option>
-                                    <option>Termitas</option>
-                                    <option>Preventivo</option>
-                                    <option>Otro</option>
-                                </select>
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-semibold text-gray-700">Mensaje</label>
-                                <textarea rows={4} className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none transition-all resize-none" placeholder="Describe tu problema..."></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full py-4 bg-brand-primary hover:bg-brand-primary-dark text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                            >
-                                {isSubmitting ? (
-                                    <>Enviando...</>
-                                ) : (
-                                    <>
-                                        Enviar Solicitud <Send className="w-5 h-5" />
-                                    </>
-                                )}
-                            </button>
-                            <p className="text-xs text-gray-500 text-center mt-4">
-                                Tus datos están seguros. No compartimos tu información.
-                            </p>
-                        </form>
-                    )}
+                    {/* Formulario embebido de GoHighLevel */}
+                    <div className="flex-1 min-h-[600px]">
+                        <GoHighLevelForm 
+                            embedCode={GOHIGHLEVEL_EMBED_CODE}
+                            className="w-full"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

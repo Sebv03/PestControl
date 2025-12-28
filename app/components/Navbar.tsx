@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ShieldCheck, Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useModal } from "../context/ModalContext";
 
 const Navbar = () => {
@@ -35,17 +36,17 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-brand-primary rounded-lg flex items-center justify-center transform rotate-3 hover:rotate-6 transition-transform">
-              <ShieldCheck className="w-6 h-6 text-white" />
+          <Link href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="relative w-12 h-12 md:w-14 md:h-14">
+              <Image
+                src="/logo.png"
+                alt="Pest Control Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span
-              className={`text-2xl font-black tracking-tighter ${isScrolled ? "text-brand-secondary" : "text-white"
-                }`}
-            >
-              R&B<span className="text-brand-primary">.</span>
-            </span>
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">

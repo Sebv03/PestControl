@@ -17,12 +17,6 @@ const Hero = () => {
 
                     {/* Text Content */}
                     <div className="lg:col-span-7 text-center lg:text-left animate-slide-up-fade">
-                        <div className="hidden md:flex items-center gap-2 mb-6 animate-slide-up-fade">
-                            <span className="bg-brand-secondary/10 text-brand-secondary px-4 py-1.5 rounded-full text-sm font-bold border border-brand-secondary/20 shadow-sm">
-                                🌟 #1 en Control de Plagas
-                            </span>
-                            <span className="text-gray-500 text-sm font-medium">Más confiable que R&B</span>
-                        </div>
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary/20 border border-brand-primary/30 text-white text-sm font-bold mb-6 tracking-wide uppercase">
                             <ShieldCheck className="w-4 h-4 text-brand-primary" />
                             <span>Expertos Licenciados y Asegurados</span>
@@ -77,7 +71,7 @@ const Hero = () => {
                                 <div className="absolute inset-0 bg-brand-secondary/50"></div>
                                 <div className="relative text-center p-8 z-10">
                                     <ShieldCheck className="w-32 h-32 text-brand-primary opacity-80 mx-auto mb-6" />
-                                    <div className="text-2xl font-bold text-white mb-2">R&B<span className="text-brand-primary">PRO</span> Standard</div>
+                                    <div className="text-2xl font-bold text-white mb-2">Pest Control<span className="text-brand-primary">PRO</span> Standard</div>
                                     <p className="text-gray-400">Certified Protection</p>
                                 </div>
                             </div>

@@ -5,23 +5,23 @@ import Link from 'next/link';
 const services = [
     {
         icon: <Rat />,
-        title: "Control de Roedores",
-        description: "Eliminación completa de ratones y ratas, incluyendo estrategias de prevención.",
+        title: "Desratización",
+        description: "Implementan sistemas para la eliminación y el control de roedores utilizando métodos físicos, químicos y estrategias de prevención. Se enfocan en la seguridad y eficacia con un control continuo.",
     },
     {
         icon: <Bug />,
-        title: "Exterminio de Insectos",
-        description: "Tratamientos específicos para hormigas, cucarachas, arañas y otros insectos rastreros.",
-    },
-    {
-        icon: <ShieldAlert />,
-        title: "Protección de Termitas",
-        description: "Detección avanzada y barreras para proteger la estructura de tu propiedad.",
+        title: "Desinsectación",
+        description: "Ofrecen tratamientos focalizados contra todo tipo de insectos (rastreros y voladores) con productos certificados para garantizar ambientes protegidos.",
     },
     {
         icon: <Droplets />,
-        title: "Servicios de Desinfección",
-        description: "Sanitización de grado hospitalario para eliminar bacterias y virus de áreas contaminadas.",
+        title: "Desinfección",
+        description: "Servicios de sanitización contra virus, bacterias y hongos. Es aplicable en diversos entornos como hogares, oficinas, escuelas, clínicas, industrias y comercio.",
+    },
+    {
+        icon: <ShieldAlert />,
+        title: "Tratamiento contra termitas",
+        description: "Realizan detección y eliminación de colonias mediante sistemas avanzados de monitoreo, inyecciones químicas y cebos profesionales que eliminan el problema desde la raíz.",
     },
 ];
 
@@ -32,7 +32,7 @@ const ServiceGrid = () => {
                 <div className="text-center mb-16 animate-slide-up-fade">
                     <h2 className="text-sm font-bold text-brand-primary tracking-widest uppercase mb-3">Nuestra Experiencia</h2>
                     <p className="text-3xl font-extrabold text-brand-secondary sm:text-4xl">
-                        Manejo Integral de Plagas
+                        Servicios Principales
                     </p>
                     <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
                         Usamos la última tecnología y métodos ecológicos para asegurar que tu entorno esté libre de plagas.

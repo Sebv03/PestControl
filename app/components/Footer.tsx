@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
@@ -14,12 +15,16 @@ const Footer = () => {
 
                     {/* Brand Info */}
                     <div>
-                        <div className="flex items-center gap-2 mb-6">
-                            <span className="text-3xl font-extrabold text-white tracking-tight">R&B</span>
-                            <span className="text-sm font-bold text-gray-400 border-l border-gray-600 pl-2 ml-2 uppercase">
-                                Pest Control
-                            </span>
-                        </div>
+                        <Link href="#" className="flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity">
+                            <div className="relative w-12 h-12">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Pest Control Logo"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                        </Link>
                         <p className="text-gray-400 text-sm leading-relaxed mb-6">
                             Servicios de control de plagas profesionales, seguros y efectivos para hogares y empresas.
                             Recuperando tu tranquilidad, un servicio a la vez.
@@ -80,7 +85,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                                <a href="mailto:info@rbpest.com" className="hover:text-white transition-colors">info@rbpest.com</a>
+                                <a href="mailto:info@pestcontrol.com" className="hover:text-white transition-colors">info@pestcontrol.com</a>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +93,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-                    <p>&copy; {new Date().getFullYear()} R&B Pest Control. Todos los derechos reservados.</p>
+                    <p>&copy; {new Date().getFullYear()} Pest Control. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>

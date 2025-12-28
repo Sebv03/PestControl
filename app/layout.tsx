@@ -20,7 +20,7 @@ import ContactModal from "./components/ContactModal";
 // ... existing imports
 
 export const metadata: Metadata = {
-  title: "R&B Pest Control",
+  title: "Pest Control",
   description: "Servicios profesionales de control de plagas.",
 };
 
