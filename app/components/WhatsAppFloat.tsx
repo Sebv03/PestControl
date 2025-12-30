@@ -9,7 +9,7 @@ interface WhatsAppFloatProps {
 }
 
 const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({ 
-  phoneNumber = "+56912345678", // Número por defecto, puedes cambiarlo
+  phoneNumber = "+56976339700", // Número por defecto, puedes cambiarlo
   message = "Hola, me gustaría solicitar información sobre sus servicios de control de plagas."
 }) => {
   // Formatear el número de teléfono (eliminar espacios, guiones, etc.)

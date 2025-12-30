@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { CheckCircle2, Phone } from 'lucide-react';
 import GoHighLevelForm from './GoHighLevelForm';
 import { GOHIGHLEVEL_EMBED_CODE } from '../../lib/gohighlevel-config';
@@ -47,6 +48,16 @@ const LeadCapture = () => {
                                     </a>
                                 </div>
                             </div>
+                            {/* Imagen del ratón */}
+                            <div className="mt-4 flex justify-center">
+                                <Image
+                                    src="/raton.png"
+                                    alt="Ratón"
+                                    width={350}
+                                    height={350}
+                                    className="object-contain"
+                                />
+                            </div>
                         </div>
                     </div>
 
@@ -54,17 +65,19 @@ const LeadCapture = () => {
                     <div className="relative animate-slide-up-fade delay-200">
                         <div className="absolute inset-0 bg-brand-primary transform rotate-3 rounded-2xl opacity-10 hidden lg:block" />
 
-                        <div className="relative bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                            <div className="mb-8">
-                                <h3 className="text-2xl font-bold text-brand-secondary">Solicitar Cotización</h3>
-                                <p className="text-gray-500 mt-1">Completa el formulario y te contactaremos en 15 mins.</p>
+                        <div className="relative bg-white p-4 sm:p-6 lg:p-8 rounded-2xl shadow-xl border border-gray-100 w-full" style={{ height: '900px' }}>
+                            <div className="mb-4 sm:mb-6 lg:mb-8">
+                                <h3 className="text-xl sm:text-2xl font-bold text-brand-secondary">Solicitar Cotización</h3>
+                                <p className="text-gray-500 mt-1 text-sm sm:text-base">Completa el formulario y te contactaremos en 15 mins.</p>
                             </div>
 
                             {/* Formulario embebido de GoHighLevel */}
-                            <GoHighLevelForm 
-                                embedCode={GOHIGHLEVEL_EMBED_CODE}
-                                className="min-h-[500px]"
-                            />
+                            <div className="w-full">
+                                <GoHighLevelForm 
+                                    embedCode={GOHIGHLEVEL_EMBED_CODE}
+                                    className="w-full"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

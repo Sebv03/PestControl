@@ -1,10 +1,12 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import SocialProof from "./components/SocialProof";
+import PigeonControl from "./components/PigeonControl";
 import ServiceGrid from "./components/ServiceGrid";
 import Process from "./components/Process";
 import LeadCapture from "./components/LeadCapture";
 import FAQ from "./components/FAQ";
+import LocationMap from "./components/LocationMap";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -15,6 +17,7 @@ export default function Home() {
         <Hero />
       </section>
       <SocialProof />
+      <PigeonControl />
       <section id="services">
         <ServiceGrid />
       </section>
@@ -26,6 +29,7 @@ export default function Home() {
         <LeadCapture />
       </section>
       <FAQ />
+      <LocationMap />
       <section id="contact">
         {/* Footer also serves as contact info area */}
       </section>

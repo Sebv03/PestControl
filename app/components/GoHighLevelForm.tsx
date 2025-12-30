@@ -48,17 +48,50 @@ const GoHighLevelForm: React.FC<GoHighLevelFormProps> = ({
       // Usar la altura del data-height o una altura mínima
       const dataHeight = iframe.getAttribute('data-height');
       const isMobile = window.innerWidth < 640;
+      const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
       
       if (dataHeight) {
-        // En móvil, reducir la altura para mejor visualización
-        const height = isMobile ? Math.min(parseInt(dataHeight), 700) : parseInt(dataHeight);
+        const originalHeight = parseInt(dataHeight);
+        let height = originalHeight;
+        
+        // Ajustar altura según el tamaño de pantalla - más conservador
+        if (isMobile) {
+          // En móvil, reducir significativamente
+          height = Math.min(originalHeight, 550);
+        } else if (isTablet) {
+          // En tablet, reducir moderadamente
+          height = Math.min(originalHeight, 650);
+        } else {
+          // En desktop, reducir un poco para mejor visualización
+          height = Math.min(originalHeight, 700);
+        }
+        
         iframe.style.height = `${height}px`;
         iframe.style.minHeight = `${height}px`;
+        iframe.style.maxHeight = `${height}px`;
       } else {
-        iframe.style.minHeight = isMobile ? '500px' : '600px';
+        // Altura por defecto según tamaño de pantalla
+        if (isMobile) {
+          iframe.style.minHeight = '450px';
+          iframe.style.height = '450px';
+        } else if (isTablet) {
+          iframe.style.minHeight = '550px';
+          iframe.style.height = '550px';
+        } else {
+          iframe.style.minHeight = '650px';
+          iframe.style.height = '650px';
+        }
       }
       iframe.style.width = '100%';
       iframe.style.maxWidth = '100%';
+      iframe.style.border = 'none';
+      iframe.style.display = 'block';
+    }
+    
+    // Ajustar el contenedor al tamaño del iframe
+    if (container && iframe) {
+      container.style.height = 'auto';
+      container.style.minHeight = 'auto';
     }
 
     // Cargar scripts después de que el HTML esté en el DOM
@@ -125,10 +158,11 @@ const GoHighLevelForm: React.FC<GoHighLevelFormProps> = ({
       ref={containerRef} 
       className={`gohl-form-container ${className}`}
       style={{ 
-        minHeight: '500px',
-        height: '100%',
         width: '100%',
-        position: 'relative'
+        position: 'relative',
+        overflow: 'visible',
+        height: 'auto',
+        minHeight: 'auto'
       }}
     />
   );

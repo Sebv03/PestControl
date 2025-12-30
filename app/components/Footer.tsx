@@ -77,15 +77,15 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm text-gray-400">
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                                <span>1234 Pest Control Ave,<br />Santiago, Chile</span>
+                                <span>Seminario 131, Providencia</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                                <a href="tel:+1234567890" className="hover:text-white transition-colors">(555) 123-4567</a>
+                                <a href="tel:+56976339700" className="hover:text-white transition-colors">+56 9 7633 9700</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-brand-primary flex-shrink-0" />
-                                <a href="mailto:info@pestcontrol.com" className="hover:text-white transition-colors">info@pestcontrol.com</a>
+                                <a href="mailto:contactoplagasryb@gmail.com" className="hover:text-white transition-colors">contactoplagasryb@gmail.com</a>
                             </li>
                         </ul>
                     </div>

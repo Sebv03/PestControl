@@ -40,7 +40,7 @@ export default function RootLayout({
           <ExitIntentPopup />
           <FlashSalePopup />
           <ContactModal />
-          <WhatsAppFloat phoneNumber="+56912345678" />
+          <WhatsAppFloat phoneNumber="+56976339700" />
         </ModalProvider>
       </body>
     </html>

@@ -1,11 +1,28 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ShieldCheck, Clock, CheckCircle, ArrowRight } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
 const Hero = () => {
     const { openContact } = useModal();
+    const words = ['Hogar', 'Oficina', 'Bodega', 'Empresa'];
+    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsAnimating(true);
+            setTimeout(() => {
+                setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+                setTimeout(() => {
+                    setIsAnimating(false);
+                }, 50); // Pequeño delay antes de mostrar la nueva palabra
+            }, 400); // Duración de la animación de salida
+        }, 3000); // Cambia cada 3 segundos
+
+        return () => clearInterval(interval);
+    }, [words.length]);
 
     return (
         <div className="relative bg-brand-secondary overflow-hidden pt-20">
@@ -23,7 +40,19 @@ const Hero = () => {
                         </div>
 
                         <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-                            Hogar Libre de <span className="text-brand-primary">Plagas</span> <br className="hidden lg:block" />
+                            <span className="inline-block relative min-w-[180px] md:min-w-[220px] lg:min-w-[260px]">
+                                <span 
+                                    key={currentWordIndex}
+                                    className={`inline-block transition-all duration-500 ease-in-out ${
+                                        isAnimating 
+                                            ? 'opacity-0 transform translate-y-[-30px] scale-95' 
+                                            : 'opacity-100 transform translate-y-0 scale-100'
+                                    }`}
+                                >
+                                    {words[currentWordIndex]}
+                                </span>
+                            </span>
+                            {' '}Libre de <span className="text-brand-primary">Plagas</span> <br className="hidden lg:block" />
                             <span className="relative">
                                 Garantizado.
                                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-brand-primary opacity-50" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00025 6.99992C18.5039 3.23595 72.8687 -1.97966 197.962 3.48663" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg>

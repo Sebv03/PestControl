@@ -62,7 +62,7 @@ const ContactModal = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400">Emergencias 24/7</p>
-                                    <p className="text-xl font-bold font-mono tracking-wide">+56 9 1234 5678</p>
+                                    <p className="text-xl font-bold font-mono tracking-wide">+56 9 7633 9700</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -71,7 +71,7 @@ const ContactModal = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-400">Correo Electrónico</p>
-                                    <p className="text-lg font-medium">contacto@pestcontrol.cl</p>
+                                    <p className="text-lg font-medium">contactoplagasryb@gmail.com</p>
                                 </div>
                             </div>
                             <div className="flex items-center gap-4">
@@ -79,8 +79,8 @@ const ContactModal = () => {
                                     <MapPin className="w-6 h-6 text-brand-primary" />
                                 </div>
                                 <div>
-                                    <p className="text-sm text-gray-400">Cobertura</p>
-                                    <p className="text-lg font-medium">Toda la Región Metropolitana</p>
+                                    <p className="text-sm text-gray-400">Dirección</p>
+                                    <p className="text-lg font-medium">Seminario 131, Providencia</p>
                                 </div>
                             </div>
                         </div>
