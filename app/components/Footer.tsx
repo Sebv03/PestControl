@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter, MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
 const Footer = () => {
@@ -25,21 +25,10 @@ const Footer = () => {
                                 />
                             </div>
                         </Link>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                        <p className="text-gray-400 text-sm leading-relaxed">
                             Servicios de control de plagas profesionales, seguros y efectivos para hogares y empresas.
                             Recuperando tu tranquilidad, un servicio a la vez.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href="#" className="text-white hover:text-brand-primary transition-colors bg-white/10 p-2 rounded-full hover:bg-white">
-                                <Facebook className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="text-white hover:text-brand-primary transition-colors bg-white/10 p-2 rounded-full hover:bg-white">
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="text-white hover:text-brand-primary transition-colors bg-white/10 p-2 rounded-full hover:bg-white">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Quick Links */}

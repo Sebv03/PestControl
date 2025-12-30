@@ -43,8 +43,8 @@ const LeadCapture = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm text-gray-500 font-medium h mb-1">¿Prefieres llamarnos?</p>
-                                    <a href="tel:+1234567890" className="text-xl font-bold text-brand-secondary hover:text-brand-primary transition-colors">
-                                        (555) 123-4567
+                                    <a href="tel:+56976339700" className="text-xl font-bold text-brand-secondary hover:text-brand-primary transition-colors">
+                                        +56 9 7633 9700
                                     </a>
                                 </div>
                             </div>

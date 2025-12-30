@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Feather, Leaf, Building2, ArrowRight } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
 
@@ -28,6 +29,20 @@ const PigeonControl = () => {
         <section className="py-20 bg-gradient-to-br from-brand-secondary via-brand-secondary/95 to-gray-900 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 z-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            
+            {/* Águila Background Image */}
+            <div className="absolute inset-0 z-0 flex items-center justify-center opacity-20 md:opacity-30">
+                <div className="relative w-full h-full max-w-5xl mx-auto aspect-square">
+                    <Image
+                        src="/aguila.png"
+                        alt="Águila rapaz"
+                        fill
+                        className="object-contain object-center"
+                        priority
+                        quality={90}
+                    />
+                </div>
+            </div>
             
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-12 animate-slide-up-fade">
